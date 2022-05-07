@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TasksModule } from './tasks/tasks.module';
+import { AuthModule, TasksModule } from './modules';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 const databaseConnection: TypeOrmModuleOptions = {
@@ -14,7 +14,7 @@ const databaseConnection: TypeOrmModuleOptions = {
 };
 
 @Module({
-  imports: [TasksModule, TypeOrmModule.forRoot(databaseConnection)],
+  imports: [TasksModule, TypeOrmModule.forRoot(databaseConnection), AuthModule],
   controllers: [],
   providers: [],
 })
